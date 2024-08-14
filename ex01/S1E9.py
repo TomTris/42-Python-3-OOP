@@ -3,20 +3,25 @@ from abc import ABC, abstractmethod
 
 class Character(ABC):
 	"""My Abstract class"""
+	@abstractmethod
 	def __init__(self, first_name, is_alive = True):
-		"""Init first_name required, is_alive by default = True"""
 		self.first_name = first_name
 		self.is_alive = is_alive
-	
-	@abstractmethod
-	def die(self):
-		"""Change is_alive to False"""
-		pass
-
-
-class Stark(Character):
-	"""A Drived Class"""
+		"""Init first_name required, is_alive by default = True"""
 	
 	def die(self):
 		"""Change is_alive to False"""
 		self.is_alive = False
+
+	def __repr__(self):
+		return(f"Vector: ('{self.family_name}', '{self.eyes}', '{self.hairs}')")
+	
+	def __str__(self):
+		return(self.__repr__())
+
+class Stark(Character):
+	"""A Drived Class"""
+	
+	def __init__(self, first_name, is_alive = True):
+		"""Change is_alive to False"""
+		super().__init__(first_name, is_alive)
