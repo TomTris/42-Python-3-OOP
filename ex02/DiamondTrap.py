@@ -22,6 +22,7 @@ class King(Baratheon, Lannister):
         """return current hair color"""
         return self.hairs
 
+
 def main():
     Joffrey = King("Joffrey")
     print(Joffrey.__dict__)
